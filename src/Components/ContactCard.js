@@ -18,9 +18,22 @@ const ContactCard = (props) =>{
            
         </div>
         <i className="trash alternate outline icon"
-         style={{color: "red", marginTop: "7px"}}
-         onClick={()=> props.clickHandler(id)}></i>
+         style={{color: "red", marginTop: "7px",marginLeft: "10px"}}
+         onClick={()=>
+         {const  confirm = window.confirm('Are you sure you wish to delete this item?');
+         if (confirm) {
+            props.clickHandler(id)
+         }
+         }}></i>
+
+     <Link to={{pathname:`/edit`, 
+                    state:{contact: props.contact}}}>
+        <i className="edit alternate outline icon"
+         style={{color: "blue", marginTop: "7px"}}
+        ></i>
+     </Link>
     </div>
+    
     )
 }
 
